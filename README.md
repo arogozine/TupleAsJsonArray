@@ -30,7 +30,7 @@ var (a, b, c, d) = JsonSerializer.Deserialize<(int, int, int, int)>("[1, 2, 3, 4
 ```
 _JavaScript_
 ```JavaScript
-// Tuples in Modals will now show up as arrays
+// Tuples in Models will now show up as arrays
 // that you can destructure
-const [a, b, c] = modelFromServer.TupleParam;
+const [a, b, c, d] = modelFromServer.TupleParam;
 ```
