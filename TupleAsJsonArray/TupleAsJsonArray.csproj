@@ -1,16 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Alexandre Rogozine</Authors>
-    <Description>Tuple to/from JSON Array</Description>
+    <Description>Convert C# Tuple to/from JSON Array</Description>
     <PackageProjectUrl>https://github.com/arogozine/TupleAsJsonArray</PackageProjectUrl>
     <RepositoryUrl>https://github.com/arogozine/TupleAsJsonArray</RepositoryUrl>
     <PackageTags>Tuple ValueTuple JSON Serialization</PackageTags>
-    <Copyright>https://mit-license.org/</Copyright>
+    <Copyright>Alexandre Rogozine</Copyright>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Nullable>enable</Nullable>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>1.0.1</Version>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
