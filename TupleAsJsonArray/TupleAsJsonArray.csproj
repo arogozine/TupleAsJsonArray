@@ -2,6 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Alexandre Rogozine</Authors>
+    <Description>Tuple to/from JSON Array</Description>
+    <PackageProjectUrl>https://github.com/arogozine/TupleAsJsonArray</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/arogozine/TupleAsJsonArray</RepositoryUrl>
+    <PackageTags>Tuple ValueTuple JSON Serialization</PackageTags>
+    <Copyright>https://mit-license.org/</Copyright>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
 </Project>
