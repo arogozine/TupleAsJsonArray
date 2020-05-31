@@ -11,19 +11,10 @@ namespace TupleAsJsonArray
     /// <summary>
     /// Tuple Converter Helper Base Class
     /// </summary>
-    /// <typeparam name="TTuple">Class Tuple of Value Tuple</typeparam>
+    /// <typeparam name="TTuple">Class Tuple or Value Tuple</typeparam>
     public abstract class TupleConverterBase<TTuple> : JsonConverter<TTuple>
         where TTuple : ITuple, IStructuralComparable, IStructuralEquatable, IComparable
     {
-        public override void Write(Utf8JsonWriter writer, TTuple value, JsonSerializerOptions options)
-        {
-            writer.WriteStartArray();
-            WriteTupleToArray(writer, value, options);
-            writer.WriteEndArray();
-        }
-
-        protected abstract void WriteTupleToArray(Utf8JsonWriter writer, TTuple value, JsonSerializerOptions options);
-
         /// <summary>
         /// Writes Value in the Tuple
         /// </summary>

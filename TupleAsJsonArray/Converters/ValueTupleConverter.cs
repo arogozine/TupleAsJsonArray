@@ -27,9 +27,11 @@ namespace TupleAsJsonArray
             return new ValueTuple<T1>(value);
         }
 
-        protected override void WriteTupleToArray(Utf8JsonWriter writer, ValueTuple<T1> value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, ValueTuple<T1> value, JsonSerializerOptions options)
         {
+            writer.WriteStartArray();
             WriteValue(writer, value.Item1, options);
+            writer.WriteEndArray();
         }
     }
 
@@ -64,10 +66,12 @@ namespace TupleAsJsonArray
             return (t1, t2);
         }
 
-        protected override void WriteTupleToArray(Utf8JsonWriter writer, ValueTuple<T1, T2> value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, ValueTuple<T1, T2> value, JsonSerializerOptions options)
         {
+            writer.WriteStartArray();
             WriteValue(writer, value.Item1, options);
             WriteValue(writer, value.Item2, options);
+            writer.WriteEndArray();
         }
     }
 
@@ -107,11 +111,13 @@ namespace TupleAsJsonArray
             return (t1, t2, t3);
         }
 
-        protected override void WriteTupleToArray(Utf8JsonWriter writer, ValueTuple<T1, T2, T3> value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, ValueTuple<T1, T2, T3> value, JsonSerializerOptions options)
         {
+            writer.WriteStartArray();
             WriteValue(writer, value.Item1, options);
             WriteValue(writer, value.Item2, options);
             WriteValue(writer, value.Item3, options);
+            writer.WriteEndArray();
         }
     }
 
@@ -157,12 +163,14 @@ namespace TupleAsJsonArray
             return (t1, t2, t3, t4);
         }
 
-        protected override void WriteTupleToArray(Utf8JsonWriter writer, ValueTuple<T1, T2, T3, T4> value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, ValueTuple<T1, T2, T3, T4> value, JsonSerializerOptions options)
         {
+            writer.WriteStartArray();
             WriteValue(writer, value.Item1, options);
             WriteValue(writer, value.Item2, options);
             WriteValue(writer, value.Item3, options);
             WriteValue(writer, value.Item4, options);
+            writer.WriteEndArray();
         }
     }
 
@@ -212,13 +220,15 @@ namespace TupleAsJsonArray
             return (t1, t2, t3, t4, t5);
         }
 
-        protected override void WriteTupleToArray(Utf8JsonWriter writer, ValueTuple<T1, T2, T3, T4, T5> value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, ValueTuple<T1, T2, T3, T4, T5> value, JsonSerializerOptions options)
         {
+            writer.WriteStartArray();
             WriteValue(writer, value.Item1, options);
             WriteValue(writer, value.Item2, options);
             WriteValue(writer, value.Item3, options);
             WriteValue(writer, value.Item4, options);
             WriteValue(writer, value.Item5, options);
+            writer.WriteEndArray();
         }
     }
 
@@ -273,14 +283,16 @@ namespace TupleAsJsonArray
             return (t1, t2, t3, t4, t5, t6);
         }
 
-        protected override void WriteTupleToArray(Utf8JsonWriter writer, ValueTuple<T1, T2, T3, T4, T5, T6> value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, ValueTuple<T1, T2, T3, T4, T5, T6> value, JsonSerializerOptions options)
         {
+            writer.WriteStartArray();
             WriteValue(writer, value.Item1, options);
             WriteValue(writer, value.Item2, options);
             WriteValue(writer, value.Item3, options);
             WriteValue(writer, value.Item4, options);
             WriteValue(writer, value.Item5, options);
             WriteValue(writer, value.Item6, options);
+            writer.WriteEndArray();
         }
     }
 
@@ -340,8 +352,9 @@ namespace TupleAsJsonArray
             return (t1, t2, t3, t4, t5, t6, t7);
         }
 
-        protected override void WriteTupleToArray(Utf8JsonWriter writer, ValueTuple<T1, T2, T3, T4, T5, T6, T7> value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, ValueTuple<T1, T2, T3, T4, T5, T6, T7> value, JsonSerializerOptions options)
         {
+            writer.WriteStartArray();
             WriteValue(writer, value.Item1, options);
             WriteValue(writer, value.Item2, options);
             WriteValue(writer, value.Item3, options);
@@ -349,6 +362,7 @@ namespace TupleAsJsonArray
             WriteValue(writer, value.Item5, options);
             WriteValue(writer, value.Item6, options);
             WriteValue(writer, value.Item7, options);
+            writer.WriteEndArray();
         }
     }
 }

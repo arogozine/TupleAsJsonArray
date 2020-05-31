@@ -75,8 +75,9 @@ namespace TupleAsJsonArray
             return new ValueTuple<T1, T2, T3, T4, T5, T6, T7, TRest>(t1, t2, t3, t4, t5, t6, t7, tRest);
         }
 
-        protected override void WriteTupleToArray(Utf8JsonWriter writer, ValueTuple<T1, T2, T3, T4, T5, T6, T7, TRest> value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, ValueTuple<T1, T2, T3, T4, T5, T6, T7, TRest> value, JsonSerializerOptions options)
         {
+            writer.WriteStartArray();
             WriteValue(writer, value.Item1, options);
             WriteValue(writer, value.Item2, options);
             WriteValue(writer, value.Item3, options);
@@ -97,6 +98,8 @@ namespace TupleAsJsonArray
             {
                 throw new JsonException();
             }
+
+            writer.WriteEndArray();
         }
     }
 }
