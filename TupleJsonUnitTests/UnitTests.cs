@@ -58,6 +58,19 @@ namespace TupleJsonUnitTests
         }
 
         [TestMethod]
+        public void ExampleTest() {
+            var options = new JsonSerializerOptions
+            {
+                Converters =
+                {
+                    new TupleConverterFactory(),
+                },
+            };
+
+            var (a, b, c, d) = JsonSerializer.Deserialize<(int, int, int, int)>("[1, 2, 3, 4]", options);
+        }
+
+        [TestMethod]
         public void ReadTupleWithComments()
         {
             var options = new JsonSerializerOptions
