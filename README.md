@@ -1,13 +1,14 @@
 # TupleAsJsonArray
-Value Tuple to/from JSON Array
+Convert C# Tuple to/from JSON Array
 
 ## About
 
 1. Serialize Tuple and ValueTuples to JSON Array
 2. Deserialize JSON Arrays as Tuples and ValueTuples
+3. Bridges the gap between JS Destructuring assignment and C# ValueTuples.
 
 ## Using
-
+_.NET C#_
 ```CSharp
 // 1. Import Library
 using TupleAsJsonArray;
@@ -27,7 +28,7 @@ var jsonArray = JsonSerializer.Serialize((1, 2, 3, 4), options);
 // 4. Deserialize Arrays to Tuples
 var (a, b, c, d) = JsonSerializer.Deserialize<(int, int, int, int)>("[1, 2, 3, 4]", options);
 ```
-
+_JavaScript_
 ```JavaScript
 // Tuples in Modals will now show up as arrays
 // that you can destructure
