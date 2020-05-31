@@ -5,6 +5,10 @@ using System.Text.Json;
 
 namespace TupleAsJsonArray
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T1">The type of the value tuple's only element.</typeparam>
     public class ValueTupleConverter<T1> : TupleConverterBase<ValueTuple<T1>>
     {
         public override ValueTuple<T1> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -27,6 +31,11 @@ namespace TupleAsJsonArray
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T1">The type of the value tuple's first element.</typeparam>
+    /// <typeparam name="T2">The type of the value tuple's second element.</typeparam>
     public class ValueTupleConverter<T1, T2> : TupleConverterBase<ValueTuple<T1, T2>>
     {
         public override ValueTuple<T1, T2> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -60,6 +69,12 @@ namespace TupleAsJsonArray
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T1">The type of the value tuple's first element.</typeparam>
+    /// <typeparam name="T2">The type of the value tuple's second element.</typeparam>
+    /// <typeparam name="T3">The type of the value tuple's third element.</typeparam>
     public class ValueTupleConverter<T1, T2, T3> : TupleConverterBase<ValueTuple<T1, T2, T3>>
     {
         public override ValueTuple<T1, T2, T3> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -98,6 +113,13 @@ namespace TupleAsJsonArray
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T1">The type of the value tuple's first element.</typeparam>
+    /// <typeparam name="T2">The type of the value tuple's second element.</typeparam>
+    /// <typeparam name="T3">The type of the value tuple's third element.</typeparam>
+    /// <typeparam name="T4">The type of the value tuple's fourth element.</typeparam>
     public class ValueTupleConverter<T1, T2, T3, T4> : TupleConverterBase<ValueTuple<T1, T2, T3, T4>>
     {
         public override ValueTuple<T1, T2, T3, T4> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -142,6 +164,14 @@ namespace TupleAsJsonArray
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T1">The type of the value tuple's first element.</typeparam>
+    /// <typeparam name="T2">The type of the value tuple's second element.</typeparam>
+    /// <typeparam name="T3">The type of the value tuple's third element.</typeparam>
+    /// <typeparam name="T4">The type of the value tuple's fourth element.</typeparam>
+    /// <typeparam name="T5">The type of the value tuple's fifth element.</typeparam>
     public class ValueTupleConverter<T1, T2, T3, T4, T5> : TupleConverterBase<ValueTuple<T1, T2, T3, T4, T5>>
     {
         public override ValueTuple<T1, T2, T3, T4, T5> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -190,6 +220,15 @@ namespace TupleAsJsonArray
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T1">The type of the value tuple's first element.</typeparam>
+    /// <typeparam name="T2">The type of the value tuple's second element.</typeparam>
+    /// <typeparam name="T3">The type of the value tuple's third element.</typeparam>
+    /// <typeparam name="T4">The type of the value tuple's fourth element.</typeparam>
+    /// <typeparam name="T5">The type of the value tuple's fifth element.</typeparam>
+    /// <typeparam name="T6">The type of the value tuple's sixth element.</typeparam>
     public class ValueTupleConverter<T1, T2, T3, T4, T5, T6> : TupleConverterBase<ValueTuple<T1, T2, T3, T4, T5, T6>>
     {
         public override ValueTuple<T1, T2, T3, T4, T5, T6> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -243,6 +282,16 @@ namespace TupleAsJsonArray
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T1">The type of the value tuple's first element.</typeparam>
+    /// <typeparam name="T2">The type of the value tuple's second element.</typeparam>
+    /// <typeparam name="T3">The type of the value tuple's third element.</typeparam>
+    /// <typeparam name="T4">The type of the value tuple's fourth element.</typeparam>
+    /// <typeparam name="T5">The type of the value tuple's fifth element.</typeparam>
+    /// <typeparam name="T6">The type of the value tuple's sixth element.</typeparam>
+    /// <typeparam name="T7">The type of the value tuple's seventh element.</typeparam>
     public class ValueTupleConverter<T1, T2, T3, T4, T5, T6, T7> : TupleConverterBase<ValueTuple<T1, T2, T3, T4, T5, T6, T7>>
     {
         public override ValueTuple<T1, T2, T3, T4, T5, T6, T7> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -301,6 +350,17 @@ namespace TupleAsJsonArray
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T1">The type of the value tuple's first element.</typeparam>
+    /// <typeparam name="T2">The type of the value tuple's second element.</typeparam>
+    /// <typeparam name="T3">The type of the value tuple's third element.</typeparam>
+    /// <typeparam name="T4">The type of the value tuple's fourth element.</typeparam>
+    /// <typeparam name="T5">The type of the value tuple's fifth element.</typeparam>
+    /// <typeparam name="T6">The type of the value tuple's sixth element.</typeparam>
+    /// <typeparam name="T7">The type of the value tuple's seventh element.</typeparam>
+    /// <typeparam name="TRest">Any generic value tuple instance that defines the types of the tuple's remaining elements.</typeparam>
     public class ValueTupleConverter<T1, T2, T3, T4, T5, T6, T7, TRest> : TupleConverterBase<ValueTuple<T1, T2, T3, T4, T5, T6, T7, TRest>>
         where TRest : struct
     {
