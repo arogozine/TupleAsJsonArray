@@ -11,27 +11,6 @@ namespace TupleAsJsonArray
     /// </summary>
     public class TupleConverterFactory : JsonConverterFactory
     {
-        private static readonly HashSet<Type> TupleTypes = new HashSet<Type>(new Type[]
-        {
-            typeof(Tuple<>),
-            typeof(Tuple<,>),
-            typeof(Tuple<,,>),
-            typeof(Tuple<,,,>),
-            typeof(Tuple<,,,,>),
-            typeof(Tuple<,,,,,>),
-            typeof(Tuple<,,,,,,>),
-            typeof(Tuple<,,,,,,,>),
-
-            typeof(ValueTuple<>),
-            typeof(ValueTuple<,>),
-            typeof(ValueTuple<,,>),
-            typeof(ValueTuple<,,,>),
-            typeof(ValueTuple<,,,,>),
-            typeof(ValueTuple<,,,,,>),
-            typeof(ValueTuple<,,,,,,>),
-            typeof(ValueTuple<,,,,,,,>)
-        });
-
         /// <summary>
         /// Determines whether the converter instance can convert the specified object type.
         /// </summary>
@@ -46,7 +25,7 @@ namespace TupleAsJsonArray
                 return false;
             }
 
-            return TupleTypes.Contains(typeToConvert.GetGenericTypeDefinition());
+            return TupleReflector.TupleTypes.Contains(typeToConvert.GetGenericTypeDefinition());
         }
 
         /// <summary>
@@ -57,46 +36,9 @@ namespace TupleAsJsonArray
         /// <returns>A converter for which T is compatible with typeToConvert.</returns>
         public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options)
         {
-            Type converterType = GetTupleConverter(typeToConvert);
+            Type converterType = TupleReflector.GetTupleConverter(typeToConvert);
             return (JsonConverter)Activator.CreateInstance(converterType);
         }
 
-        private static Type GetTupleConverter(Type typeToConvert)
-        {
-            Type[] genericTupleArgs = typeToConvert.GetGenericArguments();
-
-            if (typeToConvert.IsClass)
-            {
-                // Tuple
-                return genericTupleArgs.Length switch
-                {
-                    1 => typeof(TupleConverter<>).MakeGenericType(genericTupleArgs),
-                    2 => typeof(TupleConverter<,>).MakeGenericType(genericTupleArgs),
-                    3 => typeof(TupleConverter<,,>).MakeGenericType(genericTupleArgs),
-                    4 => typeof(TupleConverter<,,,>).MakeGenericType(genericTupleArgs),
-                    5 => typeof(TupleConverter<,,,,>).MakeGenericType(genericTupleArgs),
-                    6 => typeof(TupleConverter<,,,,,>).MakeGenericType(genericTupleArgs),
-                    7 => typeof(TupleConverter<,,,,,,>).MakeGenericType(genericTupleArgs),
-                    8 => typeof(TupleConverter<,,,,,,,>).MakeGenericType(genericTupleArgs),
-                    _ => throw new NotSupportedException(),
-                };
-            }
-            else
-            {
-                // Value Tuple
-                return genericTupleArgs.Length switch
-                {
-                    1 => typeof(ValueTupleConverter<>).MakeGenericType(genericTupleArgs),
-                    2 => typeof(ValueTupleConverter<,>).MakeGenericType(genericTupleArgs),
-                    3 => typeof(ValueTupleConverter<,,>).MakeGenericType(genericTupleArgs),
-                    4 => typeof(ValueTupleConverter<,,,>).MakeGenericType(genericTupleArgs),
-                    5 => typeof(ValueTupleConverter<,,,,>).MakeGenericType(genericTupleArgs),
-                    6 => typeof(ValueTupleConverter<,,,,,>).MakeGenericType(genericTupleArgs),
-                    7 => typeof(ValueTupleConverter<,,,,,,>).MakeGenericType(genericTupleArgs),
-                    8 => typeof(ValueTupleConverter<,,,,,,,>).MakeGenericType(genericTupleArgs),
-                    _ => throw new NotSupportedException(),
-                };
-            }
-        }
     }
 }
