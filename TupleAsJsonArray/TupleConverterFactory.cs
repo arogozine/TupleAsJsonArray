@@ -37,7 +37,9 @@ namespace TupleAsJsonArray
         public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options)
         {
             Type converterType = TupleReflector.GetTupleConverter(typeToConvert);
+            #pragma warning disable CS8600, CS8603
             return (JsonConverter)Activator.CreateInstance(converterType);
+            #pragma warning restore CS8600, CS8603
         }
 
     }

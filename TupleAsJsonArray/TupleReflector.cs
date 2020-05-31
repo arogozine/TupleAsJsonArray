@@ -66,7 +66,9 @@ namespace TupleAsJsonArray
 
         public static TRest GenerateTuple<TRest>(object[] values)
         {
+            #pragma warning disable CS8600, CS8603
             return (TRest)Activator.CreateInstance(typeof(TRest), values);
+            #pragma warning restore CS8600, CS8603
         }
     }
 }
