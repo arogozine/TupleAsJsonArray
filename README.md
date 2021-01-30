@@ -1,10 +1,8 @@
 # TupleAsJsonArray
 Convert C# Tuple to/from JSON Array
 
-![Nuget](https://img.shields.io/nuget/v/TupleAsJsonArray?style=flat-square)
-![Nuget](https://img.shields.io/nuget/dt/TupleAsJsonArray?style=flat-square)
-
-[Nuget]:https://www.nuget.org/packages/TupleAsJsonArray/
+[![Nuget](https://img.shields.io/nuget/v/TupleAsJsonArray?style=flat-square)](https://www.nuget.org/packages/TupleAsJsonArray/)
+[![Nuget](https://img.shields.io/nuget/dt/TupleAsJsonArray?style=flat-square)](https://www.nuget.org/packages/TupleAsJsonArray/)
 
 ## About
 
