@@ -1,6 +1,11 @@
 # TupleAsJsonArray
 Convert C# Tuple to/from JSON Array
 
+![Nuget](https://img.shields.io/nuget/v/TupleAsJsonArray?style=flat-square)
+![Nuget](https://img.shields.io/nuget/dt/TupleAsJsonArray?style=flat-square)
+
+[Nuget]:https://www.nuget.org/packages/TupleAsJsonArray/
+
 ## About
 
 1. Serialize Tuple and ValueTuples to JSON Array
