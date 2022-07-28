@@ -24,16 +24,7 @@ namespace TupleAsJsonArray
         /// <param name="options">Existing Options</param>
         protected void WriteValue<T>(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
         {
-            var converter = (JsonConverter<T>)options.GetConverter(typeof(T));
-
-            if (converter == null)
-            {
-                JsonSerializer.Serialize(writer, value, options);
-            }
-            else
-            {
-                converter.Write(writer, value, options);
-            }
+            JsonSerializer.Serialize(writer, value, options);
         }
 
         /// <summary>
@@ -45,16 +36,7 @@ namespace TupleAsJsonArray
         /// <returns>Deserialized Value</returns>
         protected T ReadValue<T>(ref Utf8JsonReader reader, JsonSerializerOptions options)
         {
-            var converter = (JsonConverter<T>)options.GetConverter(typeof(T));
-
-            if (converter == null)
-            {
-                return JsonSerializer.Deserialize<T>(ref reader, options);
-            }
-            else
-            {
-                return converter.Read(ref reader, typeof(T), options);
-            }
+            return JsonSerializer.Deserialize<T>(ref reader, options);
         }
     }
 }
