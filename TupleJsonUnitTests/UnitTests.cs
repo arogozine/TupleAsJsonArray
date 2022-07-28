@@ -1,7 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
+using System.Threading.Tasks;
 using TupleAsJsonArray;
 using static TupleJsonUnitTests.TestHelper;
 
@@ -154,5 +157,34 @@ namespace TupleJsonUnitTests
 
             Assert.AreEqual(valueTuple, valueTuple2);
         }
+#if NET6_0_OR_GREATER
+        [TestMethod]
+        public async Task ReadLargeStreamWithUnusualRecords()
+        {
+            var options = new JsonSerializerOptions();
+            options.Converters.Add(new TupleConverterFactory());
+
+            var biglist = new List<(Guid, DataRecord)>();
+
+            for (int i = 0; i < 100000; i++)
+            {
+                biglist.Add((Guid.NewGuid(), new DataRecord(new[] { "blah" })));
+            }
+
+            var memoryStream = new MemoryStream();
+
+            await JsonSerializer.SerializeAsync(memoryStream, biglist, options);
+            memoryStream.Position = 0;
+
+            await JsonSerializer.DeserializeAsync<List<(Guid, DataRecord)>>(memoryStream, options);
+        }
+
+        public record DataRecord(string[] Strings)
+        {
+            public string SomeInternalValue => "example";
+        }
+#endif
+
+
     }
 }
